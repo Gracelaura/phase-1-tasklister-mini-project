@@ -1,3 +1,27 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // your code here
-});
+  document.addEventListener("DOMContentLoaded", ()=>{
+    let form = document.querySelector(`form`)
+    form.addEventListener(`submit`,(e)=> {
+      e.preventDefault()
+      let text = document.getElementById(`new-task-description`).value
+      paragraph(text) 
+      form.reset()
+    })
+  })
+  
+function paragraph (words) {
+  let p = document.createElement(`p`)
+  let btn = document.createElement(`button`)
+  btn.addEventListener(`click`, deleteSth)
+  btn.textContent = `  x  `
+  p.textContent = `${words}`
+  p.appendChild(btn)
+  console.log(p)
+  document.querySelector(`#list`).appendChild(p)
+
+}
+
+function deleteSth (e){
+  e.target.parentNode.remove()
+}
+  // your code here;
+ 
